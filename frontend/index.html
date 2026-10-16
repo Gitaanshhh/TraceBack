@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TraceBack | Community Recovery Board</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="brand-mark">↗</div>
+    <p class="eyebrow">COMMUNITY RECOVERY NETWORK</p>
+    <h1>TraceBack</h1>
+    <p class="sub">A trusted place to reconnect people with what matters.</p>
+    <p class="hero-note">Lost something? Leave a clear trail. Found something? Help it get home.</p>
+  </header>
+  <main>
+    <section class="card wallet-card">
+      <div>
+        <p class="eyebrow">YOUR CONNECTION</p>
+        <h2>Ready to trace?</h2>
+        <p class="muted">Connect your wallet to publish reports and manage returns.</p>
+      </div>
+      <button id="connectBtn">Connect wallet</button>
+      <div class="wallet-details">
+        <p><b>Account</b><span id="account">Not connected</span></p>
+        <p><b>Network</b><span id="network">-</span></p>
+        <p><b>Board reports</b><span id="total">-</span></p>
+        <p><b>Board steward</b><span id="admin">-</span></p>
+      </div>
+    </section>
+    <section class="card report-card">
+      <div class="section-heading">
+        <div><p class="eyebrow">START A NEW TRAIL</p><h2>Report a missing item</h2></div>
+        <span class="step">01 / 01</span>
+      </div>
+      <div class="form-grid">
+        <label>What is missing?<input id="title" placeholder="e.g. Navy card holder" maxlength="100"></label>
+        <label>Last known location<input id="location" placeholder="e.g. North library, 2nd floor"></label>
+        <label class="wide">Helpful details<textarea id="description" placeholder="Add colour, identifying marks, or when it was last seen." rows="3"></textarea></label>
+        <label>Optional thank-you reward<input id="reward" inputmode="decimal" placeholder="ETH, e.g. 0.01"></label>
+      </div>
+      <button id="postBtn" class="primary">Publish report <span>→</span></button>
+    </section>
+    <p id="status"></p>
+    <section>
+      <div class="board-heading">
+        <div><p class="eyebrow">LIVE BOARD</p><h2>Active trails</h2></div>
+        <button id="refreshBtn" class="secondary">↻ Refresh</button>
+      </div>
+      <div class="filters">
+        <input id="searchInput" placeholder="Search title or location..." aria-label="Search reports">
+        <select id="statusFilter" aria-label="Filter reports by status">
+          <option value="all">All reports</option><option value="0">Looking for it</option>
+          <option value="1">Found, awaiting return</option><option value="2">Returned</option><option value="3">Closed</option>
+        </select>
+      </div>
+      <div id="items"></div>
+    </section>
+  </main>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
